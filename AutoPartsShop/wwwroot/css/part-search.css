@@ -1,0 +1,29 @@
+﻿.custom-card {
+    margin: 20px;
+    width: 18rem;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+}
+.card-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px; 
+}
+
+.price-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-image {
+    width: 150px; 
+    height: auto; 
+    max-width: 100%; 
+}
