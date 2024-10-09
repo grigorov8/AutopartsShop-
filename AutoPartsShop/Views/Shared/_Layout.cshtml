@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,10 +15,12 @@
 </head>
 <body>
 
-    <header class="bg-dark text-light">
+    <header class="custom-header">
         <div class="container">
             <div class="header-container d-flex justify-content-between align-items-center">
-                <a href="~/" class="navbar-brand">AutoPartsShop</a>
+                <a href="@Url.Action("Index", "Home")">
+                <img src="~/images/LOGO_DLG.jpg" alt="AutoPartsShop Logo" style="height: 140px;" />
+                </a>
                 <div class="search-form-container">
                     <form asp-controller="Parts" asp-action="PartSearch" method="get" class="d-flex">
                         <input type="text" name="partNumber" placeholder="Търсене по номер на част" class="form-control me-2" />
@@ -48,6 +51,10 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
     @await RenderSectionAsync("Scripts", required: false)
+   
 </body>
 </html>

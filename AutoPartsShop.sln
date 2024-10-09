@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoPartsShop.Core", "AutoP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoPartsShop.Api", "AutoPartsShop.Api\AutoPartsShop.Api.csproj", "{E74C529A-9948-4185-8658-42970E409D96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPartsShop.Test", "AutoPartsShop.Test\AutoPartsShop.Test.csproj", "{F46DFF59-763F-4DA7-A2FF-9F2E1AED3399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoPartsShop.Test", "AutoPartsShop.Test\AutoPartsShop.Test.csproj", "{F46DFF59-763F-4DA7-A2FF-9F2E1AED3399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{DB682B77-CE61-4C2B-ABEB-4A3A1055CE7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F46DFF59-763F-4DA7-A2FF-9F2E1AED3399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F46DFF59-763F-4DA7-A2FF-9F2E1AED3399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F46DFF59-763F-4DA7-A2FF-9F2E1AED3399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB682B77-CE61-4C2B-ABEB-4A3A1055CE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB682B77-CE61-4C2B-ABEB-4A3A1055CE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB682B77-CE61-4C2B-ABEB-4A3A1055CE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB682B77-CE61-4C2B-ABEB-4A3A1055CE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

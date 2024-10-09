@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
+
+using Shared.ValidationConstants;
 
 namespace AutoPartsShop.Infrastructure.Database.Models
 {
@@ -17,24 +17,24 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
 
         [Required]
-        [StringLength(150)]
+        [StringLength(PartsValidationConstants.NameMaxLength)]
         public string Name { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(50)]
+        [StringLength(PartsValidationConstants.PartNumberMaxLength)]
         public string PartNumber { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(100)]
+        [StringLength(PartsValidationConstants.ManufacturerMaxLength)]
         public string Manufacturer { get; set; } = string.Empty;
 
 
         [Required]
-        [Range(0.01, 1000_000)]
+        [Range(0.01, 100000)]
         public decimal Price { get; set; }
 
 
-        [StringLength(1000)]
+        [StringLength(PartsValidationConstants.DescriptionMaxLength)]
         public string Description { get; set; } = string.Empty;
 
 

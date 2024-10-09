@@ -11,6 +11,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
 {
     public class PartConfiguration : IEntityTypeConfiguration<Part>
     {
+
         private Part[] oilFilterparts =
         {
             new Part
@@ -68,7 +69,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
                 Description = "High-efficiency air filter for improved engine performance.",
                 Stock = 10,
                 ImageFileName = "Air-Filter.jpg",
-                CategoryId = 2
+                CategoryId = 1
             },
             new Part
             {
@@ -80,7 +81,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
                 Description = "Durable air filter for superior filtration and protection.",
                 Stock = 10,
                 ImageFileName = "Air-Filter.jpg",
-                CategoryId = 2
+                CategoryId = 1
             },
             new Part
             {
@@ -92,7 +93,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
                 Description = "Advanced air filter for enhanced air flow and engine efficiency.",
                 Stock = 20,
                 ImageFileName = "Air-Filter.jpg",
-                CategoryId = 2
+                CategoryId = 1
             }
 
         };
@@ -111,7 +112,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
                 Description = "High-performance fuel filter for efficient fuel filtration.",
                 Stock = 20,
                 ImageFileName = "Fuel-Filter.jpg",
-                CategoryId = 3
+                CategoryId = 1
             },
             new Part
             {
@@ -123,7 +124,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
                 Description = "Durable fuel filter for reliable performance and protection.",
                 Stock = 15,
                 ImageFileName = "Fuel-Filter.jpg",
-                CategoryId = 3
+                CategoryId = 1
             },
             new Part
             {
@@ -135,7 +136,7 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
                 Description = "Advanced fuel filter for optimal engine efficiency.",
                 Stock = 10,
                 ImageFileName = "Fuel-Filter.jpg",
-                CategoryId = 3
+                CategoryId = 1
             }
         };
 

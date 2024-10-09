@@ -16,7 +16,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -85,29 +85,12 @@ namespace AutoPartsShop.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Oil Filters"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Air Filters"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Fuel Filters"
-                        });
                 });
 
             modelBuilder.Entity("AutoPartsShop.Infrastructure.Database.Models.Customer", b =>
@@ -152,7 +135,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Displacement")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("FuelType")
                         .IsRequired()
@@ -162,10 +145,8 @@ namespace AutoPartsShop.Infrastructure.Migrations
                     b.Property<int>("HorsePower")
                         .HasColumnType("int");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -185,8 +166,8 @@ namespace AutoPartsShop.Infrastructure.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("ImageFileName")
                         .HasColumnType("nvarchar(max)");
@@ -198,16 +179,16 @@ namespace AutoPartsShop.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PartNumber")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -258,7 +239,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             Description = "High-efficiency air filter for improved engine performance.",
                             ImageFileName = "Air-Filter.jpg",
                             Manufacturer = "MANN",
@@ -270,7 +251,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             Description = "Durable air filter for superior filtration and protection.",
                             ImageFileName = "Air-Filter.jpg",
                             Manufacturer = "MANN",
@@ -282,7 +263,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             Description = "Advanced air filter for enhanced air flow and engine efficiency.",
                             ImageFileName = "Air-Filter.jpg",
                             Manufacturer = "MANN",
@@ -294,7 +275,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CategoryId = 3,
+                            CategoryId = 1,
                             Description = "High-performance fuel filter for efficient fuel filtration.",
                             ImageFileName = "Fuel-Filter.jpg",
                             Manufacturer = "MANN",
@@ -306,7 +287,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CategoryId = 3,
+                            CategoryId = 1,
                             Description = "Durable fuel filter for reliable performance and protection.",
                             ImageFileName = "Fuel-Filter.jpg",
                             Manufacturer = "MANN",
@@ -318,7 +299,7 @@ namespace AutoPartsShop.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CategoryId = 3,
+                            CategoryId = 1,
                             Description = "Advanced fuel filter for optimal engine efficiency.",
                             ImageFileName = "Fuel-Filter.jpg",
                             Manufacturer = "MANN",

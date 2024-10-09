@@ -29,10 +29,12 @@ namespace AutoPartsShop.Infrastructure.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+          
 
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new PartConfiguration());
-            
+
+            //   modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            //  modelBuilder.ApplyConfiguration(new PartConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
 
@@ -49,6 +51,16 @@ namespace AutoPartsShop.Infrastructure.Database
                 .HasOne(cp => cp.Part)
                 .WithMany(p => p.CarParts)
                 .HasForeignKey(cp => cp.PartId);
+
+            modelBuilder.Entity<Engine>()
+            .Property(e => e.Displacement)
+            .HasColumnType("decimal(18, 2)"); 
+
+            modelBuilder.Entity<Part>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18, 2)");
+
+            
 
         }
 

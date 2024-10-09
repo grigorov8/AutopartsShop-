@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shared.ValidationConstants;
 
 namespace AutoPartsShop.Infrastructure.Database.Models
 {
@@ -15,7 +16,7 @@ namespace AutoPartsShop.Infrastructure.Database.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(150)]
+        [StringLength(CategoryValidationConstants.NameMaxLength)]
         public string Name { get; set; } = string.Empty;
 
 

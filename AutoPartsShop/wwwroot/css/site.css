@@ -11,12 +11,19 @@
 
 header {
     padding: 20px 0;
+   
 }
+
+.custom-header {
+    background-color: #212429;
+}
+
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .navbar-brand {
@@ -54,7 +61,7 @@ header {
 
 
 footer {
-    background-color: #343a40;  
+    background-color: #212429;
     color: #ffffff;
     position: relative;
     bottom: 0;

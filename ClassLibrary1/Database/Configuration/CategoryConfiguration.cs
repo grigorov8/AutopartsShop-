@@ -15,9 +15,9 @@ namespace AutoPartsShop.Infrastructure.Database.Configuration
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasData(
-                new Category { Id = 1, Name = "Oil Filters" },
-                new Category { Id = 2, Name = "Air Filters" },
-                new Category { Id = 3, Name = "Fuel Filters" }
+                new Category { Id = 2, Name = "Engine" },
+                new Category { Id = 1, Name = "Filters" },
+                new Category { Id = 3, Name = "Brake" }
             );
 
         }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using Shared.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AutoPartsShop.Infrastructure.Database.Models
 {
@@ -14,10 +12,9 @@ namespace AutoPartsShop.Infrastructure.Database.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Type { get; set; } = string.Empty;
+        public EngineType Type { get; set; }
 
-        [Required]
+        [Required]  
         public decimal Displacement { get; set; }
 
         [Required]

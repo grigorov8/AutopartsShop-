@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using Shared.ValidationConstants;
+
 
 namespace AutoPartsShop.Infrastructure.Database.Models
 {
@@ -16,18 +13,18 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
 
         [Required]
-        [StringLength(100, MinimumLength = 2)]
+        [StringLength(CustomerValidationConstants.NameMaxLength)]
         public string Name { get; set; } = string.Empty;
 
 
         [Required]
         [EmailAddress]
-        [StringLength(150)]
+        [StringLength(CustomerValidationConstants.EmailMaxLength)]
         public string Email { get; set; } = string.Empty;
 
 
         [Required]
-        [StringLength(50)]
+        [StringLength(CustomerValidationConstants.PhoneNumberMaxLength)]
         public string PhoneNumber { get; set; } = string.Empty;
 
 

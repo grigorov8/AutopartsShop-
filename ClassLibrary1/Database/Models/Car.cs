@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Shared.ValidationConstants;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
+
 
 namespace AutoPartsShop.Infrastructure.Database.Models
 {
@@ -17,21 +16,22 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
 
         [Required]
-        [StringLength(100)]
+        [StringLength(CarValidationConstants.MakeMaxLength)]
         public string Make { get; set; } = string.Empty;
 
 
         [Required]
-        [StringLength(100)]
+        [StringLength(CarValidationConstants.ModelMaxLenght)]
         public string Model { get; set; } = string.Empty;
 
 
         [Required]
+        [Range(CarValidationConstants.MinYear, CarValidationConstants.MaxYear)]
         public int Year { get; set; }
 
 
         [Required]
-        [StringLength(17, MinimumLength = 17)]
+        [StringLength(CarValidationConstants.VinLenght, MinimumLength = CarValidationConstants.VinLenght)]
         public string Vin { get; set; } = string.Empty;
 
 
