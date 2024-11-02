@@ -17,12 +17,13 @@ namespace Shared.ValidationConstants
         public const int ModelMaxLenght = 100;
 
 
-        public const int MinYear = 1886; 
-        public const int MaxYear = 2024;
+        public const int MinYear = 1886;
+        public const int MaxYear = 2025;
 
         public const int VinLenght = 17;
-       
 
+        public const double EngineCapacityMin = 0.6;
+        public const double EngineCapacityMax = 9.0;
 
 
     }

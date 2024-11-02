@@ -1,13 +1,17 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using AutoPartsShop.Core.Services;
+using Microsoft.AspNetCore.Authorization;
+
 
 
 namespace AutoPartsShop.Controllers
 {
 
+    
     public class PartsController : Controller
     {
+
 
         private readonly IPartService _partService;
 
@@ -20,7 +24,6 @@ namespace AutoPartsShop.Controllers
         }
 
 
-
         public async Task<IActionResult> PartSearch(string partNumber)
         {
 
@@ -30,7 +33,7 @@ namespace AutoPartsShop.Controllers
             if (parts == null || !parts.Any())
             {
 
-                ViewBag.Message = $"Part with number '{partNumber}' not found.";
+              
                 return View();
 
             }
@@ -38,6 +41,11 @@ namespace AutoPartsShop.Controllers
             return View(parts);
 
         }
+
+     //   public async Task<IActionResult> PartSearchByCar()
+        
+
+
 
 
     }

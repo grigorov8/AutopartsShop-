@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -30,7 +29,7 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
 
         [Required]
-        [Range(0.01, 100000)]
+        [Range(0.01, 100_000)]
         public decimal Price { get; set; }
 
 
@@ -42,13 +41,16 @@ namespace AutoPartsShop.Infrastructure.Database.Models
         public int Stock { get; set; }
 
 
-        public string? ImageFileName { get; set; }
+        public string ImageFileName { get; set; } = string.Empty;
 
+
+        [Range(0, 5)]
+        public double AverageRating { get; set; } = 0;
 
 
         [ForeignKey(("Category"))]
         public int CategoryId { get; set; }
-        public Category? Category { get; set; } 
+        public Category Category { get; set; } = null!;
 
 
 

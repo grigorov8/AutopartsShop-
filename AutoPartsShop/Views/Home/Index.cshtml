@@ -1,3 +1,50 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
+<div class="container mt-5">
+    <h2>Търсене на части по кола</h2>
+    <form action="/YourController/YourAction" method="get" class="mt-4">
+
+        <div class="form-group">
+            <label for="Make">Марка:</label>
+            <select class="form-control" id="Make" name="Make">
+                <option value="">Изберете марка</option>
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Model">Модел:</label>
+            <select class="form-control" id="Model" name="Model">
+                <option value="">Изберете модел</option>
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Year">Година:</label>
+            <select class="form-control" id="Year" name="Year">
+                <option value="">Изберете година</option>
+
+                @for (int year = 1886; year <= 2100; year++)
+                {
+                    <option value="@year">@year</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Displacement">Обем:</label>
+            <select class="form-control" id="Displacement" name="Displacement">
+                <option value="">Изберете обем</option>
+
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Търсене</button>
+    </form>
+</div>

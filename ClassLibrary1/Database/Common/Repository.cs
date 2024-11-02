@@ -11,9 +11,9 @@ namespace AutoPartsShop.Infrastructure.Database.Common
     public class Repository : IRepository
     {
 
-        private readonly AutoPartsShopDbContext context;
+        private readonly AutoShopDbContext context;
 
-        public Repository(AutoPartsShopDbContext  _context) 
+        public Repository(AutoShopDbContext  _context) 
         { 
 
             context = _context;

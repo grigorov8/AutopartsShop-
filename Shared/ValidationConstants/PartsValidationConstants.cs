@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace Shared.ValidationConstants
 {
     public static class PartsValidationConstants
@@ -11,7 +12,7 @@ namespace Shared.ValidationConstants
         public const int DescriptionMaxLength = 500;
 
         public const int PartNumberMinLength = 2;
-        public const int PartNumberMaxLength = 30;
+        public const int PartNumberMaxLength = 40;
 
         public const int MinQuantity = 1;
         public const int MaxQuantity = 1000;

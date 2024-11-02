@@ -2,11 +2,6 @@
 
 
 
-@if (!string.IsNullOrEmpty(ViewBag.Message))
-{
-    <p style="color:red;">@ViewBag.Message</p>
-}
-
 @if (Model != null && Model.Any())
 {
     @foreach (var item in Model)
@@ -35,4 +30,5 @@ else
 {
     <p>No results found.</p>
 }
+
 

@@ -31,18 +31,18 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
 
         [Required]
+        [Range(CarValidationConstants.EngineCapacityMin, CarValidationConstants.EngineCapacityMax)]
+        public decimal EngineCapacity { get; set; } 
+
+
+        [Required]
         [StringLength(CarValidationConstants.VinLenght, MinimumLength = CarValidationConstants.VinLenght)]
         public string Vin { get; set; } = string.Empty;
 
 
-        [Required]
-        [ForeignKey("Engine")]
-        public int EngineId { get; set; }  
-        public Engine? Engine { get; set; }
-
+        public string Image { get; set; } = string.Empty;
 
         public ICollection<CarPart> CarParts { get; set; } = new List<CarPart>();
-
 
 
 

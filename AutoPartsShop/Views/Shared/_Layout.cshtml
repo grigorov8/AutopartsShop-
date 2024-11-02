@@ -1,11 +1,9 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AutoPartsShop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AutoPartsShop.styles.css" asp-append-version="true" />
@@ -23,7 +21,7 @@
                 </a>
                 <div class="search-form-container">
                     <form asp-controller="Parts" asp-action="PartSearch" method="get" class="d-flex">
-                        <input type="text" name="partNumber" placeholder="Търсене по номер на част" class="form-control me-2" />
+                        <input type="text" name="PartNumber" placeholder="Търсене по номер на част" class="form-control me-2" />
                         <button type="submit" class="btn btn-primary">ТЪРСЕНЕ</button>
                     </form>
                 </div>
@@ -31,8 +29,7 @@
             </div>
         </div>
     </header>
-
-
+   
 
 
     <div class="container">
@@ -41,19 +38,20 @@
         </main>
     </div>
 
-
-
     <footer class="border-top footer text-muted">
         <div class="container text-left">
             &copy; @DateTime.Now.Year - AutoPartsShop
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @section Scripts {
         <partial name="_ValidationScriptsPartial" />
     }
+    
     @await RenderSectionAsync("Scripts", required: false)
    
 </body>

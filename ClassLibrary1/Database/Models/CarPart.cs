@@ -19,12 +19,12 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
         [ForeignKey("Car")]
         public int CarId { get; set; }
-        public Car Car { get; set; }
+        public Car Car { get; set; } = null!;
 
 
         [ForeignKey("Part")]
         public int PartId { get; set; }
-        public Part Part { get; set; }
+        public Part Part { get; set; } = null!;
 
 
 

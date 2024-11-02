@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace Shared.ValidationConstants
 {
-    public static class CustomerValidationConstants
+
+    public static class ProductValidationConstants
     {
 
         public const int NameMinLength = 2;
         public const int NameMaxLength = 100;
 
-        public const int EmailMaxLength = 150;
+        public const int DescriptionMaxLength = 500;
 
-        public const int PhoneNumberMaxLength = 50;
+        public const int ProfuctNumberMinLength = 2;
+        public const int ProductNumberMaxLength = 40;
+
+        public const int ManufacturerMaxLength = 100;
 
     }
+
 
 
 }

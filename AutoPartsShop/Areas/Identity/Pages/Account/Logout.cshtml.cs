@@ -4,7 +4,6 @@
 
 using System;
 using System.Threading.Tasks;
-using AutoPartsShop.Infrastructure.Database.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,19 +14,29 @@ namespace AutoPartsShop.Areas.Identity.Pages.Account
 {
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<AplicationUser> _signInManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<AplicationUser> signInManager)
+        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
+            _logger = logger;
         }
 
-        // Тук добави логиката за logout
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
-            return RedirectToPage("/Index"); // Пренасочване след излизане
+            _logger.LogInformation("User logged out.");
+            if (returnUrl != null)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                // This needs to be a redirect so that the browser performs a new
+                // request and the identity for the user gets updated.
+                return RedirectToPage();
+            }
         }
     }
-
 }

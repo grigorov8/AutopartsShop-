@@ -12,10 +12,10 @@ namespace AutoPartsShop.Core.Services
     public class PartService : IPartService
     {
 
-        private readonly AutoPartsShopDbContext _context;
+        private readonly AutoShopDbContext _context;
         
 
-        public PartService(AutoPartsShopDbContext context)
+        public PartService(AutoShopDbContext context)
         {
             _context = context;
         }
@@ -45,6 +45,11 @@ namespace AutoPartsShop.Core.Services
 
         }
 
+
+     //   public Task<List<PartSearchByCarModel>> SearchPartsByCarAsync(string Make, string Model, int Year, decimal Displacement)
+        
+           
+        
 
 
     }

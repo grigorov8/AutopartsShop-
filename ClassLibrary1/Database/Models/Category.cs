@@ -22,7 +22,7 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
         public ICollection<Part> Parts { get; set; } = new List<Part>();
 
-
+        public ICollection<Product> Products { get; set; } = new List<Product>();
 
     }
 

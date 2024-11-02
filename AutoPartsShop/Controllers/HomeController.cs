@@ -24,11 +24,6 @@ namespace AutoPartsShop.Controllers
         }
         
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
 
 
 

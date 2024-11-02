@@ -1,9 +1,5 @@
 ﻿using AutoPartsShop.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AutoPartsShop.Core.Services
 {
@@ -11,6 +7,8 @@ namespace AutoPartsShop.Core.Services
     {
 
          Task<List<PartModel>> SearchPartsAsync(string partNumber);
+
+      //   Task<List<PartSearchByCarModel>> SearchPartsByCarAsync(string Make, string Model, int Year, decimal Displacement);
 
 
     }
