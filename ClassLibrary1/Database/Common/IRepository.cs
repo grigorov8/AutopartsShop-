@@ -11,7 +11,7 @@ namespace AutoPartsShop.Infrastructure.Database.Common
 
         IQueryable<T> All<T>() where T : class;
 
-        IQueryable<T> AllReadonly<T>() where T : class;
+        IQueryable<T> AllReadOnly<T>() where T : class;
 
         Task<T?> GetByIdAsync<T>(object id) where T : class;
 
@@ -23,9 +23,6 @@ namespace AutoPartsShop.Infrastructure.Database.Common
         Task DeleteAsync<T>(int Id) where T : class;
 
         Task<int> SaveChangesAsync<T>();
-
-
-
 
 
 

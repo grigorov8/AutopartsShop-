@@ -27,17 +27,17 @@ namespace AutoPartsShop.Infrastructure.Database.Models
         public decimal Price { get; set; }
 
         [StringLength(ProductValidationConstants.DescriptionMaxLength)]
-        public string Description { get; set; } = null!;
+        public string Description { get; set; } = string.Empty;
 
         [Required]
         [StringLength (ProductValidationConstants.ManufacturerMaxLength)]
-        public string Manufacturer { get; set; } = null!; 
+        public string Manufacturer { get; set; } = string.Empty; 
 
         [Required]
         public int StockQuantity { get; set; } 
 
 
-        public string Image {  get; set; } = null!;
+        public string Image {  get; set; } = string.Empty;
 
 
         [ForeignKey(("Category"))]

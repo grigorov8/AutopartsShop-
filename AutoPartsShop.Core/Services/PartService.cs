@@ -1,23 +1,23 @@
 ﻿using AutoPartsShop.Core.Models;
-using AutoPartsShop.Infrastructure.Database;
+using AutoPartsShop.Infrastructure.Database.Common;
+using AutoPartsShop.Infrastructure.Database.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace AutoPartsShop.Core.Services
 {
     public class PartService : IPartService
     {
 
-        private readonly AutoShopDbContext _context;
+        private readonly IRepository _repository;
         
 
-        public PartService(AutoShopDbContext context)
+        public PartService(IRepository repository)
         {
-            _context = context;
+
+            _repository = repository;
+
         }
 
 
@@ -25,7 +25,8 @@ namespace AutoPartsShop.Core.Services
         public async Task<List<PartModel>> SearchPartsAsync(string partNumber)
         {
 
-            var parts = await _context.Parts
+            var parts = await _repository
+                .All<Part>()
                 .Where(p => p.PartNumber == partNumber)
                 .Select(p => new PartModel
                 {
