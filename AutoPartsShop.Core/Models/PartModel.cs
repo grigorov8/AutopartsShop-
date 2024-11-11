@@ -20,7 +20,6 @@ namespace AutoPartsShop.Core.Models
         public string PartNumber { get; set; } = string.Empty;
 
         [Required]
-      
         public decimal Price { get; set; }
 
         [StringLength(PartsValidationConstants.DescriptionMaxLength, ErrorMessage = "Описание не може да бъде по-дълго от {1} символа.")]
