@@ -1,0 +1,47 @@
+﻿@model AutoPartsShop.Core.Models.CarModel
+
+
+
+@if (Model != null)
+{
+    <div class="card border-light shadow-sm mb-4" style="max-width: 18rem;">
+        <img src="~/images/@Model.Image" alt="@Model.Make @Model.Model" class="card-img-top car-image" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+            <h2 class="card-title text-center">@Model.Make @Model.Model</h2>
+            <p class="card-text">Year: @Model.Year</p>
+            <p class="card-text">Engine Capacity: @Model.EngineCapacity</p>
+        </div>
+    </div>
+
+    <h3>Parts for this Car:</h3>
+    @if (Model.Parts.Any())
+    {
+        
+            @foreach (var part in Model.Parts)
+            {
+                
+                    <div class="card custom-card">
+                        <img src="~/images/@part.ImageFileName" alt="@part.Name" class="card-image">
+                        <div class="card-body">
+                            <h3 class="card-title">@part.Name</h3>
+                            <h4 class="card-manufacturer">@part.Manufacturer</h4>
+                            <p class="card-part-number">Код на продукта: @part.PartNumber</p>
+                            <p class="card-text">@part.Description</p>
+
+                            <div class="price-and-button">
+                                <div class="card-price">@part.Price лв.</div>
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fa-solid fa-cart-plus"></i> Купи
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                
+            }
+        
+    }
+}
+else
+{
+    <p>No data available.</p>
+}

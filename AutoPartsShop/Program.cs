@@ -1,3 +1,4 @@
+using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Services;
 using AutoPartsShop.Infrastructure.Database;
 using AutoPartsShop.Infrastructure.Database.Common;
@@ -36,9 +37,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
      
 
-
  builder.Services.AddScoped<IRepository, Repository>();
-
+ builder.Services.AddScoped<ICarService, CarService>();
  builder.Services.AddScoped<IPartService, PartService>();
 
 

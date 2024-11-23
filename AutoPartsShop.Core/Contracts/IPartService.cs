@@ -1,22 +1,23 @@
 ﻿using AutoPartsShop.Core.Models;
 using AutoPartsShop.Infrastructure.Database.Common;
+using AutoPartsShop.Infrastructure.Database.Models;
 
 
 namespace AutoPartsShop.Core.Services
 {
-    public interface IPartService 
+    public interface IPartService
     {
 
-         Task<List<PartModel>> SearchPartsAsync(string partNumber);
+        Task<List<PartModel>> SearchPartsAsync(string partNumber);
 
-      //   Task<List<PartSearchByCarModel>> SearchPartsByCarAsync(string Make, string Model, int Year, decimal Displacement);
+        Task<IEnumerable<PartModel>> GetAllPartsAsync();
+        Task<PartModel> GetPartByIdAsync(int id);
+        Task AddPartAsync(PartModel part);
+        Task UpdatePartAsync(PartModel part);
+        Task DeletePartAsync(int id);
 
-
-
-
-
-
+        Task<IEnumerable<Category>> GetAllCategoriesAsync();
+        
     }
-
 
 }

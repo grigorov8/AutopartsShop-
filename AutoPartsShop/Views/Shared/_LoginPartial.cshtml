@@ -8,9 +8,9 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <div>
-            <p style="color: coral; font-weight: bold;">Здравейте, @User.Identity.Name!</p>
+            <p style="color: #FFD200; font-weight: bold;">Здравейте, @User.Identity.Name!</p>
             <form asp-area="Identity" asp-page="/Account/Logout" method="post">
-                <button type="submit" class="btn btn-link" style="color: coral;text-decoration: none;">Изход</button>
+                <button type="submit" class="btn btn-link" style="color: #FFD200; font-weight: bold; text-decoration: none;">Изход</button>
             </form>
         </div>
     }

@@ -32,7 +32,7 @@ namespace AutoPartsShop.Infrastructure.Database.Models
         [Range(0.01, 100_000)]
         public decimal Price { get; set; }
 
-
+        [Required]
         [StringLength(PartsValidationConstants.DescriptionMaxLength)]
         public string Description { get; set; } = string.Empty;
 

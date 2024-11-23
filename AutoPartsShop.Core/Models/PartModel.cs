@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AutoPartsShop.Infrastructure.Database.Models;
 using Shared.ValidationConstants;
 
 
@@ -30,7 +31,14 @@ namespace AutoPartsShop.Core.Models
         public string Manufacturer { get; set; } = string.Empty;
 
 
-        public string? ImageFileName { get; set; } 
+        public string? ImageFileName { get; set; }
+
+
+        public int SelectedCategoryId { get; set; }
+
+        
+        public List<Category> Categories { get; set; } = new List<Category>();
+
 
 
 

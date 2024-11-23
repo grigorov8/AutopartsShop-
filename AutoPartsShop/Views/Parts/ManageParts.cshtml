@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AutoPartsShop.Core.Models.PartModel>
+
+
+@{
+    ViewData["Title"] = "Управление на части";
+}
+
+<div class="container mt-5">
+    <h2>Управление на части</h2>
+    <div>
+        <a href="@Url.Action("AddPart", "Parts")" class="btn btn-success mb-3">Добави нова част</a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Име на частта</th>
+                    <th scope="col">Номер на частта</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Производител</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var part in Model)
+                {
+                    <tr>
+                        <td>@part.Name</td>
+                        <td>@part.PartNumber</td>
+                        <td>@part.Price</td>
+                        <td>@part.Manufacturer</td>
+                        <td>@part.Description</td>
+                        <td>
+                            <a href="@Url.Action("EditPart", "Parts", new { id = part.Id })" class="btn btn-warning">Редактирай</a>
+
+                            <form action="@Url.Action("DeletePart", "Parts", new { id = part.Id })" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Сигурни ли сте, че искате да изтриете тази част?');">Изтрий</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Няма налични части.</p>
+    }
+</div>

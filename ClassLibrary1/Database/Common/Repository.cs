@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace AutoPartsShop.Infrastructure.Database.Common
 {
@@ -12,7 +8,6 @@ namespace AutoPartsShop.Infrastructure.Database.Common
     {
 
         private readonly AutoShopDbContext context;
-
         public Repository(AutoShopDbContext  _context) 
         { 
 
@@ -53,8 +48,8 @@ namespace AutoPartsShop.Infrastructure.Database.Common
         public async Task DeleteAsync<T>(int Id) where T : class
         {
            T? entity = await DbSet<T>().FindAsync(Id);
-            DbSet<T>().Remove(DbSet<T>().Find(Id));
 
+            DbSet<T>().Remove(DbSet<T>().Find(Id));
 
         }
 
