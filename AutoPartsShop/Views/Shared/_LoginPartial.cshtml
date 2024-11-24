@@ -1,8 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using AutoPartsShop.Models 
+@using AutoPartsShop.Models
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-
 
 <div class="login-container">
     @if (SignInManager.IsSignedIn(User))
@@ -10,17 +9,91 @@
         <div>
             <p style="color: #FFD200; font-weight: bold;">Здравейте, @User.Identity.Name!</p>
             <form asp-area="Identity" asp-page="/Account/Logout" method="post">
-                <button type="submit" class="btn btn-link" style="color: #FFD200; font-weight: bold; text-decoration: none;">Изход</button>
+                <button type="submit" class="btn btn-link text-warning fw-bold text-decoration-none">Изход</button>
             </form>
         </div>
     }
     else
     {
         <div>
-            <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-secondary">Вход</a>
-            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-secondary">Регистрация</a>
+            
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Вход
+            </button>
+            
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">
+                Регистрация
+            </button>
         </div>
     }
+</div>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Вход</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-area="Identity" asp-page="/Account/Login" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="loginEmail" name="Input.Email" placeholder="name@example.com" required>
+                        <label for="loginEmail">Имейл</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="loginPassword" name="Input.Password" placeholder="Парола" required>
+                        <label for="loginPassword">Парола</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="rememberMe" name="Input.RememberMe">
+                        <label class="form-check-label" for="rememberMe">Запомни ме</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Вход</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a asp-area="Identity" asp-page="/Account/ForgotPassword" class="text-decoration-none">Забравена парола?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-area="Identity" asp-page="/Account/Register" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="registerEmail" name="Input.Email" placeholder="name@example.com" required>
+                        <label for="registerEmail">Имейл</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="registerUsername" name="Input.Username" placeholder="Потребителско име" required>
+                        <label for="registerUsername">Потребителско име</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="registerPassword" name="Input.Password" placeholder="Парола" required>
+                        <label for="registerPassword">Парола</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="registerConfirmPassword" name="Input.ConfirmPassword" placeholder="Потвърдете паролата" required>
+                        <label for="registerConfirmPassword">Потвърдете паролата</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Регистрация</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p class="mb-0">Вече имате акаунт? <a href="#" class="text-decoration-none" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Вход</a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 

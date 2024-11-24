@@ -47,7 +47,6 @@ namespace AutoPartsShop.Core.Services
         {
 
 
-
             var part = new Part
             {
                 Id = partModel.Id,
@@ -61,18 +60,22 @@ namespace AutoPartsShop.Core.Services
 
             await _repository.AddAsync(part);
             await _repository.SaveChangesAsync<Part>();
+
         }
 
        
         public async Task DeletePartAsync(int id)
         {
+
             await _repository.DeleteAsync<Part>(id);
             await _repository.SaveChangesAsync<Part>();
+
         }
 
         
         public async Task<IEnumerable<PartModel>> GetAllPartsAsync()
         {
+
             return await _repository.All<Part>()
                 .Select(p => new PartModel
                 {
@@ -85,11 +88,13 @@ namespace AutoPartsShop.Core.Services
                    
                 })
                 .ToListAsync();
+
         }
 
        
         public async Task<PartModel?> GetPartByIdAsync(int id)
         {
+
             var part = await _repository.GetByIdAsync<Part>(id);
 
             if (part != null)

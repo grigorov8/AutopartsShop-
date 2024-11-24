@@ -22,6 +22,7 @@ namespace AutoPartsShop.Controllers
 
         }
 
+
         [HttpGet]
         public async Task<IActionResult> PartSearch(string partNumber)
         {
@@ -43,8 +44,11 @@ namespace AutoPartsShop.Controllers
         [HttpGet]
         public async Task<IActionResult> ManageParts()
         {
+
             var parts = await _partService.GetAllPartsAsync(); 
+
             return View(parts); 
+
         }
 
 
