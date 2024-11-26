@@ -3,25 +3,25 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+
 <div class="login-container">
     @if (SignInManager.IsSignedIn(User))
     {
         <div>
-            <p style="color: #FFD200; font-weight: bold;">Здравейте, @User.Identity.Name!</p>
+            <p style="color: #797979; font-weight: bold;">Здравейте, @User.Identity.Name!</p>
             <form asp-area="Identity" asp-page="/Account/Logout" method="post">
-                <button type="submit" class="btn btn-link text-warning fw-bold text-decoration-none">Изход</button>
+                <button type="submit" class="btn btn-link fw-bold text-decoration-none" style="color: #797979;">Изход</button>
             </form>
         </div>
     }
     else
     {
         <div>
-            
-            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <button type="button" class="btn btn-outline-secondary" style="color: #797979;" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Вход
             </button>
-            
-            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">
+
+            <button type="button" class="btn btn-outline-secondary" style="color: #797979;" data-bs-toggle="modal" data-bs-target="#registerModal">
                 Регистрация
             </button>
         </div>

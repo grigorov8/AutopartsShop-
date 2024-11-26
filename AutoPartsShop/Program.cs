@@ -2,6 +2,7 @@ using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Services;
 using AutoPartsShop.Infrastructure.Database;
 using AutoPartsShop.Infrastructure.Database.Common;
+using AutoPartsShop.Infrastructure.Database.Extensions;
 using AutoPartsShop.Infrastructure.Database.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,7 @@ builder.Services.AddDbContext<AutoShopDbContext>(options =>
 
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireDigit = false;
@@ -25,8 +26,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.Password.RequireUppercase = false;
 
 })
-    .AddEntityFrameworkStores<AutoShopDbContext>();
-
+    .AddEntityFrameworkStores<AutoShopDbContext>()
+    .AddDefaultTokenProviders();
+    
 
 
 
@@ -44,6 +46,9 @@ builder.Services.AddControllersWithViews();
 
 
 var app = builder.Build();
+
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
