@@ -2,8 +2,6 @@ using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Services;
 using AutoPartsShop.Infrastructure.Database;
 using AutoPartsShop.Infrastructure.Database.Common;
-using AutoPartsShop.Infrastructure.Database.Extensions;
-using AutoPartsShop.Infrastructure.Database.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,7 +22,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.Password.RequireDigit = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
-
+    options.SignIn.RequireConfirmedEmail = false;
 })
     .AddEntityFrameworkStores<AutoShopDbContext>()
     .AddDefaultTokenProviders();
@@ -50,11 +48,10 @@ var app = builder.Build();
 
 
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -69,9 +66,15 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 
 app.Run();

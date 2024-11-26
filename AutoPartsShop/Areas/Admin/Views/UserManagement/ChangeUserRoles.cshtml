@@ -1,0 +1,13 @@
+﻿@model AutoPartsShop.Areas.Admin.Models.ChangeUserRolesViewModel
+
+<div class="container">
+    <h2>Change Roles for @Model.UserEmail</h2>
+    <form asp-action="ChangeUserRoles" method="post">
+        <input type="hidden" asp-for="UserId" />
+        <div class="mb-3">
+            <label>Available Roles</label>
+            <select asp-for="UserRoles" asp-items="new SelectList(Model.AvailableRoles)" multiple class="form-control"></select>
+        </div>
+        <button class="btn btn-primary">Save Changes</button>
+    </form>
+</div>

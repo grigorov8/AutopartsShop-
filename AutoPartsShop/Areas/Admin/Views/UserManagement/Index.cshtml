@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AutoPartsShop.Areas.Admin.Models.UserRolesViewModel>
+
+<div class="container">
+    <h2 class="mt-4">Manage Users</h2>
+    <a asp-action="AddUser" class="btn btn-success mb-3">Add User</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var userRoles in Model)
+            {
+                <tr>
+                    <td>@userRoles.User.Email</td>
+                    <td>
+                        @foreach (var role in userRoles.Roles)
+                        {
+                            <span class="badge bg-secondary">@role</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="ChangeUserRoles" asp-route-id="@userRoles.User.Id" class="btn btn-warning btn-sm">Edit Roles</a>
+                        <form asp-action="DeleteUser" asp-route-id="@userRoles.User.Id" method="post" style="display:inline;">
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -27,8 +27,8 @@ namespace AutoPartsShop.Infrastructure.Database.Extensions
             }
 
            
-            var adminEmail = "grigorov@gmail.com";
-            var adminPassword = "admin123";
+            var adminEmail = "";
+            var adminPassword = "";
 
 
             if (await userManager.FindByEmailAsync(adminEmail) == null)

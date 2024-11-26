@@ -1,0 +1,20 @@
+﻿@model AutoPartsShop.Areas.Admin.Models.AddUserViewModel
+
+<div class="container">
+    <h2>Add User</h2>
+    <form asp-action="AddUser" method="post">
+        <div class="mb-3">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Roles</label>
+            <select asp-for="Roles" asp-items="new SelectList(Model.AvailableRoles)" multiple class="form-control"></select>
+        </div>
+        <button class="btn btn-primary">Add User</button>
+    </form>
+</div>

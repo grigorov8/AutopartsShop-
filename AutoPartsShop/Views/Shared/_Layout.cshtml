@@ -31,17 +31,36 @@
         </div>
 
         <div class="container mt-3">
-            <button class="btn btn-danger dropdown-toggle fw-bold" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Manage
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" asp-controller="Parts" asp-action="ManageParts">Parts</a></li>
-                <li><a class="dropdown-item" asp-controller="Product" asp-action="Product">Product</a></li>
-                <li><a class="dropdown-item" asp-controller="Car" asp-action="AddCar">Car</a></li>
-                <li><a class="dropdown-item" asp-controller="Category" asp-action="Category">Category</a></li>
-            </ul>
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                @if (User.IsInRole("Manager"))
+                {
+                    <button class="btn btn-danger dropdown-toggle fw-bold" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Manage
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" asp-controller="Parts" asp-action="ManageParts">Parts</a></li>
+                        <li><a class="dropdown-item" asp-controller="Product" asp-action="Product">Product</a></li>
+                        <li><a class="dropdown-item" asp-controller="Car" asp-action="AddCar">Car</a></li>
+                        <li><a class="dropdown-item" asp-controller="Category" asp-action="Category">Category</a></li>
+                    </ul>
+                }
+            }
         </div>
 
+        <div class="container mt-2">
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="@Url.Action("Index", "Home", new { area = "Admin" })"
+                       class="btn btn-primary w-auto" style="border-radius: 5px; font-weight: bold;">
+                        <i class="bi bi-gear-fill"></i> Admin Area
+                    </a>
+                }
+            }
+        </div>
+        
     </header>
    
     
