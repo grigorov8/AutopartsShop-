@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = null!;
 }
 
 <!DOCTYPE html>
@@ -8,41 +8,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>500 - Вътрешна грешка на сървъра</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f7f7f7;
-            color: #333;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 80px;
-            color: #e63946;
-        }
-
-        p {
-            font-size: 18px;
-        }
-
-        a {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-            a:hover {
-                background-color: #0056b3;
-            }
-    </style>
 </head>
-<body>
-    <h1>500</h1>
-    <p>Възникна вътрешна грешка на сървъра.</p>
-    <p>Моля, опитайте отново по-късно.</p>
-    <a href="/">Върнете се към началната страница</a>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center;">
+
+    <div>
+        <img src="https://cdn2.iconfinder.com/data/icons/network-and-communicaion/100/Error_500-1024.png"
+             alt="500 Error"
+             width="600"
+             style="max-width: 100%; height: auto;" />
+
+        <a href="/" style="text-decoration: none; color: white; background-color: #007bff; padding: 10px 20px; border-radius: 5px; font-size: 16px; display: block; margin-top: 20px;">
+            Върнете се към началната страница
+        </a>
+    </div>
+    
 </body>
 </html>
+

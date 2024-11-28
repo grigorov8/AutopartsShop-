@@ -2,6 +2,7 @@
 using AutoPartsShop.Core.Services;
 using AutoPartsShop.Core.Models;
 using AutoPartsShop.Infrastructure.Database.Models;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace AutoPartsShop.Controllers
@@ -22,7 +23,7 @@ namespace AutoPartsShop.Controllers
 
         }
 
-
+        
         [HttpGet]
         public async Task<IActionResult> PartSearch(string partNumber)
         {

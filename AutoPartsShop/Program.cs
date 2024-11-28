@@ -1,4 +1,4 @@
-using AutoPartsShop.Core.Contracts;
+﻿using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Services;
 using AutoPartsShop.Infrastructure.Database;
 using AutoPartsShop.Infrastructure.Database.Common;

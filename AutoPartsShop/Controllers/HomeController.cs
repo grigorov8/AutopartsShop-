@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 
 
@@ -10,7 +11,9 @@ namespace AutoPartsShop.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
+           return View();
+            
         }
 
         
@@ -25,18 +28,12 @@ namespace AutoPartsShop.Controllers
 
                 return View("Error404");
 
-            }                    
-            else if (statusCode == 401 || statusCode == 403)
-            {
-
-                return View("Error403");
-
             }
             else
             {
-                return View("Error500");
+                return View("Error500"); 
             }
-            
+
 
         }
 
