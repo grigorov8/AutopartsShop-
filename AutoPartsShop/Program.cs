@@ -30,7 +30,6 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 
 
-
 builder.Services.AddRazorPages();
 
 
@@ -56,6 +55,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -66,6 +67,8 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+
+app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
 
 app.MapControllerRoute(
     name: "areas",
