@@ -16,6 +16,7 @@ Parts Management:
 Add, edit, and delete parts through the admin interface.
 Managerial Features:
 Managers can add new parts, update stock availability, and perform other administrative tasks.
+
 ⚙️ Technologies Used
 This project leverages the following technologies:
 
