@@ -66,6 +66,7 @@ namespace AutoPartsShop.Controllers
 
         }
 
+
         [HttpPost]
         public async Task<IActionResult> AddPart(PartModel partModel)
         {
@@ -88,6 +89,7 @@ namespace AutoPartsShop.Controllers
         [HttpGet]
         public async Task<IActionResult> EditPart(int id)
         {
+
             var part = await _partService.GetPartByIdAsync(id); 
             if (part == null)
             {
@@ -121,6 +123,14 @@ namespace AutoPartsShop.Controllers
             await _partService.DeletePartAsync(id); 
             return RedirectToAction(nameof(ManageParts)); 
         }
+
+
+
+      
+
+
+
+
 
 
     }

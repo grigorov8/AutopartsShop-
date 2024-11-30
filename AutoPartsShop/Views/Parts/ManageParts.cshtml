@@ -5,6 +5,7 @@
     ViewData["Title"] = "Управление на части";
 }
 
+
 <div class="container mt-5">
     <h2>Управление на части</h2>
     <div>
@@ -21,6 +22,7 @@
                     <th scope="col">Цена</th>
                     <th scope="col">Производител</th>
                     <th scope="col">Описание</th>
+                    <th scope="col">Количество</th>
                     <th scope="col">Действия</th>
                 </tr>
             </thead>
@@ -33,6 +35,7 @@
                         <td>@part.Price</td>
                         <td>@part.Manufacturer</td>
                         <td>@part.Description</td>
+                        <td>@part.Stock</td>
                         <td>
                             <a href="@Url.Action("EditPart", "Parts", new { id = part.Id })" class="btn btn-warning">Редактирай</a>
 
@@ -50,3 +53,6 @@
         <p>Няма налични части.</p>
     }
 </div>
+
+
+

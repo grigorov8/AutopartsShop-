@@ -55,6 +55,7 @@ namespace AutoPartsShop.Core.Services
                 Price = partModel.Price,
                 Description = partModel.Description,
                 Manufacturer = partModel.Manufacturer,
+                Stock = partModel.Stock,
                 CategoryId = partModel.SelectedCategoryId
             };
 
@@ -77,6 +78,7 @@ namespace AutoPartsShop.Core.Services
         {
 
             return await _repository.All<Part>()
+
                 .Select(p => new PartModel
                 {
                     Id = p.Id,
@@ -85,7 +87,7 @@ namespace AutoPartsShop.Core.Services
                     Price = p.Price,
                     Description = p.Description,
                     Manufacturer = p.Manufacturer,
-                   
+                   Stock= p.Stock,
                 })
                 .ToListAsync();
 
@@ -117,6 +119,7 @@ namespace AutoPartsShop.Core.Services
        
         public async Task UpdatePartAsync(PartModel partModel)
         {
+
             var part = await _repository.GetByIdAsync<Part>(partModel.Id);
 
             if (part != null)
@@ -141,6 +144,9 @@ namespace AutoPartsShop.Core.Services
             return await _repository.All<Category>().ToListAsync();
 
         }
+
+
+  
 
 
 

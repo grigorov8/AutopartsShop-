@@ -1,0 +1,37 @@
+﻿@model AutoPartsShop.Core.Models.CarModel
+
+
+
+<div class="container mt-5 overflow-auto" style="max-height: 60vh;">
+    <h2>Добави нова кола</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="Make" class="form-label">Марка</label>
+            <input type="text" class="form-control" id="Make" name="Make" value="@Model.Make" />
+            <span asp-validation-for="Make" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Model" class="form-label">Модел</label>
+            <input type="text" class="form-control" id="Model" name="Model" value="@Model.Model" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Year" class="form-label">Година</label>
+            <input type="number" class="form-control" id="Year" name="Year" value="@Model.Year" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="EngineCapacity" class="form-label">Кубатура</label>
+            <textarea class="form-control" id="EngineCapacity" name="EngineCapacity">@Model.EngineCapacity</textarea>
+            <span asp-validation-for="EngineCapacity" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Vin" class="form-label">Вин номер</label>
+            <input type="text" class="form-control" id="Vin" name="Vin" value="@Model.Vin" />
+            <span asp-validation-for="Vin" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Добави кола</button>
+    </form>
+</div>

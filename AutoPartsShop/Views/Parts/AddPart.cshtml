@@ -30,7 +30,11 @@
             <input type="text" class="form-control" id="Manufacturer" name="Manufacturer" value="@Model.Manufacturer" />
             <span asp-validation-for="Manufacturer" class="text-danger"></span>
         </div>
-
+        <div class="mb-3">
+            <label for="Stock" class="form-label">Количество</label>
+            <input type="text" class="form-control" id="Stock" name="Stock" value="@Model.Stock" />
+            <span asp-validation-for="Stock" class="text-danger"></span>
+        </div>
         <div class="col-sm-6 mb-2">
             <label asp-for="@Model.SelectedCategoryId" class="form-label-add-edit">Select Category</label>
             <select asp-for="@Model.SelectedCategoryId" class="form-control" aria-required="true" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">

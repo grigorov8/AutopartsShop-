@@ -12,6 +12,16 @@ namespace AutoPartsShop.Core.Contracts
 
         Task<CarModel> SearchCarByVin(string vin);
 
+        Task<IEnumerable<CarModel>> GetAllCarsAsync();
+
+        Task<CarModel> GetCarByIdAsync(int id);
+
+        Task AddCarAsync(CarModel car);
+
+        Task UpdateCarAsync(CarModel car);
+
+        Task DeleteCarAsync(int id);
+
 
     }
 

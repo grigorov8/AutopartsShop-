@@ -10,8 +10,8 @@ namespace AutoPartsShop.Core.Models
 
         public int Id { get; set; }
 
-
-        [StringLength(PartsValidationConstants.NameMaxLength, MinimumLength = 1,
+        [Required]
+        [StringLength(PartsValidationConstants.NameMaxLength, MinimumLength = 2,
              ErrorMessage = "Името трябва да бъде между {2} и {1} символа.")]
         public string Name { get; set; } = string.Empty;
 
@@ -30,6 +30,8 @@ namespace AutoPartsShop.Core.Models
         [StringLength(PartsValidationConstants.ManufacturerMaxLength, ErrorMessage = "Производителят не може да бъде по-дълъг от {1} символа.")]
         public string Manufacturer { get; set; } = string.Empty;
 
+        [Required]
+        public int Stock {  get; set; } 
 
         public string? ImageFileName { get; set; }
 

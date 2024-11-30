@@ -34,6 +34,7 @@ namespace AutoPartsShop.Infrastructure.Database.Common
             await DbSet<T>().AddRangeAsync(entities);
         }
 
+
         public IQueryable<T> All<T>() where T : class
         {
             return DbSet<T>();

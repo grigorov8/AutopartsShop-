@@ -1,0 +1,32 @@
+﻿@model AutoPartsShop.Core.Models.CarModel
+
+
+
+
+<div class="container mt-5">
+    <h2>Редактиране на кола</h2>
+    <form method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="mb-3">
+            <label for="Make" class="form-label">Име на кола</label>
+            <input type="text" class="form-control" id="Make" name="Make" value="@Model.Make" required />
+        </div>
+        <div class="mb-3">
+            <label for="Model" class="form-label">Модел на кола</label>
+            <input type="text" class="form-control" id="Model" name="Model" value="@Model.Model" required />
+        </div>
+        <div class="mb-3">
+            <label for="Year" class="form-label">Година</label>
+            <input type="number" class="form-control" id="Year" name="Year" value="@Model.Year" required />
+        </div>
+        <div class="mb-3">
+            <label for="EngineCapacity" class="form-label">Кубатура</label>
+            <textarea class="form-control" id="EngineCapacity" name="EngineCapacity">@Model.EngineCapacity</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="Vin" class="form-label">Вин номер</label>
+            <input type="text" class="form-control" id="Vin" name="Vin" value="@Model.Vin" />
+        </div>
+        <button type="submit" class="btn btn-primary">Запази промените</button>
+    </form>
+</div>

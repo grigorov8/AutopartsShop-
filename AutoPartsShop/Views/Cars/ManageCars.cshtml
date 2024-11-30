@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AutoPartsShop.Core.Models.CarModel>
+
+
+
+
+
+<div class="container mt-5">
+    <h2>Управление на коли</h2>
+    <div>
+        <a href="@Url.Action("AddCar", "Cars")" class="btn btn-success mb-3">Добави нова кола</a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Марка на колата</th>
+                    <th scope="col">Модел на колата</th>
+                    <th scope="col">Година</th>
+                    <th scope="col">Кубатура</th>
+                    <th scope="col">Вин номер</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model)
+                {
+                    <tr>
+                        <td>@car.Make</td>
+                        <td>@car.Model</td>
+                        <td>@car.Year</td>
+                        <td>@car.EngineCapacity</td>
+                        <td>@car.Vin</td>
+                        <td>
+                            <a href="@Url.Action("EditCar", "Cars", new { id = car.Id })" class="btn btn-warning">Редактирай</a>
+
+                            <form action="@Url.Action("DeleteCar", "Cars", new { id = car.Id })" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Сигурни ли сте, че искате да изтриете тази кола?');">Изтрий</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Няма налични части.</p>
+    }
+</div>
+
+
+

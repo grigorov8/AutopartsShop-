@@ -35,9 +35,9 @@ namespace AutoPartsShop.Infrastructure.Database
         {
 
             base.OnModelCreating(modelBuilder);
-         
 
-           
+            
+
 
         }
 

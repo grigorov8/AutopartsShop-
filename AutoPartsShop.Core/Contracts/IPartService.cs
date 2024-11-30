@@ -17,7 +17,10 @@ namespace AutoPartsShop.Core.Services
         Task DeletePartAsync(int id);
 
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
-        
+
+      
+
+
     }
 
 }
