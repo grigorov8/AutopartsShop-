@@ -39,7 +39,7 @@ builder.Services.AddControllersWithViews();
  builder.Services.AddScoped<IRepository, Repository>();
  builder.Services.AddScoped<ICarService, CarService>();
  builder.Services.AddScoped<IPartService, PartService>();
-
+ builder.Services.AddScoped<IProductService, ProductService>();
 
 
 var app = builder.Build();

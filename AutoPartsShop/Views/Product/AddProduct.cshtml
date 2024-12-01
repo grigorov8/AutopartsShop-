@@ -1,0 +1,48 @@
+﻿@model AutoPartsShop.Core.Models.ProductModel
+
+
+
+<div class="container mt-5 overflow-auto" style="max-height: 60vh;">
+    <h2>Добави нов продукт</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Име на продукта</label>
+            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="ProductNumber" class="form-label">Номер на продукта</label>
+            <input type="text" class="form-control" id="ProductNumber" name="ProductNumber" value="@Model.ProductNumber" />
+            <span asp-validation-for="ProductNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Price" class="form-label">Цена</label>
+            <input type="number" class="form-control" id="Price" name="Price" value="@Model.Price" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Description" class="form-label">Описание</label>
+            <textarea class="form-control" id="Description" name="Description">@Model.Description</textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Manufacturer" class="form-label">Производител</label>
+            <input type="text" class="form-control" id="Manufacturer" name="Manufacturer" value="@Model.Manufacturer" />
+            <span asp-validation-for="Manufacturer" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="StockQuantity" class="form-label">Количество</label>
+            <input type="text" class="form-control" id="StockQuantity" name="StockQuantity" value="@Model.StockQuantity" />
+            <span asp-validation-for="StockQuantity" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6 mb-2">
+            <label asp-for="@Model.SelectedCategoryId" class="form-label-add-edit">Select Category</label>
+            <select asp-for="@Model.SelectedCategoryId" class="form-control" aria-required="true" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
+                <option value="">Select Category...</option>
+            </select>
+            <span asp-validation-for="@Model.SelectedCategoryId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Добави част</button>
+    </form>
+</div>
+

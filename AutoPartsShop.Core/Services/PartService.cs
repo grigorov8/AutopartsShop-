@@ -2,7 +2,7 @@
 using AutoPartsShop.Infrastructure.Database.Common;
 using AutoPartsShop.Infrastructure.Database.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
+
 
 namespace AutoPartsShop.Core.Services
 {
@@ -87,7 +87,7 @@ namespace AutoPartsShop.Core.Services
                     Price = p.Price,
                     Description = p.Description,
                     Manufacturer = p.Manufacturer,
-                   Stock= p.Stock,
+                    Stock= p.Stock,
                 })
                 .ToListAsync();
 
@@ -109,7 +109,7 @@ namespace AutoPartsShop.Core.Services
                     Price = part.Price,
                     Description = part.Description,
                     Manufacturer = part.Manufacturer,
-                    
+                    Stock = part.Stock,
                 };
             }
 
@@ -129,7 +129,7 @@ namespace AutoPartsShop.Core.Services
                 part.Price = partModel.Price;
                 part.Description = partModel.Description;
                 part.Manufacturer = partModel.Manufacturer;
-               
+                part.Stock = partModel.Stock;
 
                 await _repository.SaveChangesAsync<Part>();
             }

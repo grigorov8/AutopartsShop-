@@ -13,35 +13,35 @@
         </div>
     </div>
 
-    <h3>Parts for this Car:</h3>
-    @if (Model.Parts.Any())
-    {
-        
+    <button id="show-parts-btn" class="btn btn-secondary mb-3">Покажи всички части за тази кола</button>
+
+    <div id="car-parts" style="display: none;">
+        @if (Model.Parts.Any())
+        {
             @foreach (var part in Model.Parts)
             {
-                
-                    <div class="card custom-card">
-                        <img src="~/images/@part.ImageFileName" alt="@part.Name" class="card-image">
-                        <div class="card-body">
-                            <h3 class="card-title">@part.Name</h3>
-                            <h4 class="card-manufacturer">@part.Manufacturer</h4>
-                            <p class="card-part-number">Код на продукта: @part.PartNumber</p>
-                            <p class="card-text">@part.Description</p>
+                <div class="card custom-card">
+                    <img src="~/images/@part.ImageFileName" alt="@part.Name" class="card-image">
+                    <div class="card-body">
+                        <h3 class="card-title">@part.Name</h3>
+                        <h4 class="card-manufacturer">@part.Manufacturer</h4>
+                        <p class="card-part-number">Код на продукта: @part.PartNumber</p>
+                        <p class="card-text">@part.Description</p>
 
-                            <div class="price-and-button">
-                                <div class="card-price">@part.Price лв.</div>
-                                <a href="#" class="btn btn-primary">
-                                    <i class="fa-solid fa-cart-plus"></i> Купи
-                                </a>
-                            </div>
+                        <div class="price-and-button">
+                            <div class="card-price">@part.Price лв.</div>
+                            <a href="#" class="btn btn-primary">
+                                <i class="fa-solid fa-cart-plus"></i> Купи
+                            </a>
                         </div>
                     </div>
-                
+                </div>
             }
-        
-    }
+        }
+        else
+        {
+            <p>No data available.</p>
+        }
+    </div>
 }
-else
-{
-    <p>No data available.</p>
-}
+<script src="~/js/show-parts.js"></script>

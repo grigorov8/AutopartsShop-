@@ -1,23 +1,21 @@
-﻿@model AutoPartsShop.Core.Models.PartModel
+﻿@model AutoPartsShop.Core.Models.ProductModel
 
 
-@{
-    ViewData["Title"] = "Редактиране на част";
-}
+
 
 <div class="container mt-5" style="max-height: 500px; overflow-y: scroll;">
-    <h2>Редактиране на част</h2>
+    <h2>Редактиране на продукт</h2>
     <form method="post">
         <input type="hidden" name="Id" value="@Model.Id" />
         <div class="mb-3">
-            <label for="Name" class="form-label">Име на частта</label>
+            <label for="Name" class="form-label">Име на продукт</label>
             <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label for="PartNumber" class="form-label">Номер на частта</label>
-            <input type="text" class="form-control" id="PartNumber" name="PartNumber" value="@Model.PartNumber" required />
-            <span asp-validation-for="PartNumber" class="text-danger"></span>
+            <label for="ProductNumber" class="form-label">Номер на продукт</label>
+            <input type="text" class="form-control" id="ProductNumber" name="ProductNumber" value="@Model.ProductNumber" required />
+            <span asp-validation-for="ProductNumber" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label for="Price" class="form-label">Цена</label>
@@ -35,9 +33,9 @@
             <span asp-validation-for="Manufacturer" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label for="Stock" class="form-label">Количество</label>
-            <input type="text" class="form-control" id="Stock" name="Stock" value="@Model.Stock" />
-            <span asp-validation-for="Stock" class="text-danger"></span>
+            <label for="StockQuantity" class="form-label">Количество</label>
+            <input type="text" class="form-control" id="StockQuantity" name="StockQuantity" value="@Model.StockQuantity" />
+            <span asp-validation-for="StockQuantity" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Запази промените</button>
     </form>

@@ -23,6 +23,7 @@ namespace AutoPartsShop.Core.Models
         [Required]
         public decimal Price { get; set; }
 
+       
         [StringLength(PartsValidationConstants.DescriptionMaxLength, ErrorMessage = "Описание не може да бъде по-дълго от {1} символа.")]
         public string Description { get; set; } = string.Empty;
 
