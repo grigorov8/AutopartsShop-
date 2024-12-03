@@ -65,6 +65,7 @@ namespace AutoPartsShop.Controllers
 
         }
 
+
         [HttpPost]
         public async Task<IActionResult> AddCar(CarModel carModel)
         {
@@ -81,6 +82,7 @@ namespace AutoPartsShop.Controllers
             return View(carModel);
 
         }
+
 
         [HttpGet]
         public async Task<IActionResult> EditCar(int id)

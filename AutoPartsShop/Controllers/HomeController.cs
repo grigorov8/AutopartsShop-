@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 
 
@@ -17,6 +18,7 @@ namespace AutoPartsShop.Controllers
         }
 
         
+
 
 
         public IActionResult Error(int? statusCode)

@@ -20,6 +20,17 @@ namespace AutoPartsShop.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> ProductSearch()
+        {
+           
+            var oils = await _productService.GetAllProductsAsync();
+
+            
+            return View(oils);
+        }
+
+
 
         [HttpGet]
         public async Task<IActionResult> ManageProduct()
@@ -101,6 +112,7 @@ namespace AutoPartsShop.Controllers
             return RedirectToAction(nameof(ManageProduct));
 
         }
+
 
 
 

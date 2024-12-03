@@ -1,0 +1,23 @@
+﻿
+
+<div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 20px; margin: 20px;">
+    
+    <div style="flex: 1; background-color: #8FBFDA; padding: 20px; border-radius: 10px; max-width: 450px;">
+        <h2>Търсене по VIN</h2>
+        <form asp-controller="Cars" asp-action="SearchByVin" method="get">
+            <div class="form-group">
+                <label for="vin">Въведете VIN:</label>
+                <input type="text" id="vin" name="vin" class="form-control" required placeholder="Пример: WAUZZZ8K4AA123456" maxlength="17" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Търсене</button>
+            </div>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger mt-3 d-flex justify-content-between align-items-center">
+                    <span>@TempData["ErrorMessage"]</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+        </form>
+    </div>

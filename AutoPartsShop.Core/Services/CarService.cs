@@ -67,6 +67,7 @@ namespace AutoPartsShop.Core.Services
                     Make = c.Make,
                     Model = c.Model,
                     Year = c.Year,
+                    EngineCapacity = c.EngineCapacity,
                     Vin = c.Vin,
                    
 
@@ -84,6 +85,7 @@ namespace AutoPartsShop.Core.Services
                 Id = carModel.Id,
                 Make = carModel.Make,
                 Model = carModel.Model,
+                EngineCapacity = carModel.EngineCapacity,
                 Year = carModel.Year,
                 Vin = carModel.Vin,
                

@@ -22,12 +22,13 @@ namespace AutoPartsShop.Infrastructure.Database
 
 
 
-
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Part> Parts { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Car> Cars { get; set; } = null!;
         public DbSet<CarPart> CarParts { get; set; } = null!;
+
+        public DbSet<CartItem> CartItems { get; set; } = null!;
 
 
 
@@ -36,7 +37,10 @@ namespace AutoPartsShop.Infrastructure.Database
 
             base.OnModelCreating(modelBuilder);
 
-            
+          
+
+
+
 
 
         }
