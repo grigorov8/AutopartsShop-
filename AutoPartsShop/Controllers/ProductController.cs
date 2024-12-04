@@ -1,7 +1,8 @@
 ﻿using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using X.PagedList.Extensions;
+
 
 namespace AutoPartsShop.Controllers
 {
@@ -21,13 +22,15 @@ namespace AutoPartsShop.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> ProductSearch()
+        public async Task<IActionResult> ProductSearch(int page = 1, int pageSize = 10)
         {
            
             var oils = await _productService.GetAllProductsAsync();
 
-            
-            return View(oils);
+            var pagedProducts = oils.ToPagedList(page, pageSize);
+
+            return View(pagedProducts);
+
         }
 
 

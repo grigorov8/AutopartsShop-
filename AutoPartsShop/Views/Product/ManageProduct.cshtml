@@ -10,7 +10,9 @@
 
     @if (Model != null && Model.Any())
     {
-        <table class="table">
+
+        <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+            <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Име на продукт</th>
@@ -45,6 +47,8 @@
                 }
             </tbody>
         </table>
+        </div>
+
     }
     else
     {

@@ -1,4 +1,9 @@
-﻿@model IEnumerable<AutoPartsShop.Core.Models.ProductModel>
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList
+
+@model IPagedList<AutoPartsShop.Core.Models.ProductModel>
+
+
 
 @{
     ViewData["Title"] = "Всички масла";
@@ -17,4 +22,8 @@
             <p style="font-size: 14px; color: #28a745;">Наличност: @product.StockQuantity</p>
         </div>
     }
+</div>
+
+<div class="pagination" style="margin-top: 20px;">
+    @Html.PagedListPager(Model, page => Url.Action("ProductSearch", new { page }))
 </div>
