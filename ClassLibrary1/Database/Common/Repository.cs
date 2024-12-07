@@ -8,6 +8,7 @@ namespace AutoPartsShop.Infrastructure.Database.Common
     {
 
         private readonly AutoShopDbContext context;
+
         public Repository(AutoShopDbContext  _context) 
         { 
 
@@ -48,9 +49,12 @@ namespace AutoPartsShop.Infrastructure.Database.Common
 
         public async Task DeleteAsync<T>(int Id) where T : class
         {
-           T? entity = await DbSet<T>().FindAsync(Id);
+           var entity = await DbSet<T>().FindAsync(Id);
 
-            DbSet<T>().Remove(DbSet<T>().Find(Id));
+            if (entity != null)
+            {
+                DbSet<T>().Remove(entity);
+            }
 
         }
 

@@ -2,7 +2,6 @@
 using AutoPartsShop.Core.Models;
 using AutoPartsShop.Infrastructure.Database.Common;
 using AutoPartsShop.Infrastructure.Database.Models;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -75,6 +74,7 @@ namespace AutoPartsShop.Core.Services
                 .ToListAsync();
 
         }
+
 
         public async Task AddCarAsync(CarModel carModel)
         {

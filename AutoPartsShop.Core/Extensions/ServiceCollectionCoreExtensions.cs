@@ -1,5 +1,6 @@
 ﻿using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Services;
+using AutoPartsShop.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -13,6 +14,7 @@ namespace AutoPartsShop.Core.Extensions
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<IPartService, PartService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             return services;
 

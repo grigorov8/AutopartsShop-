@@ -1,0 +1,14 @@
+﻿
+<div class="dropdown">
+    <button class="btn btn-success dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Търсене на части по категория
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a class="dropdown-item" href="@Url.Action("CategoryParts", "Category", new { categoryId = category.Id })">@category.Name</a>
+            </li>
+        }
+    </ul>
+</div>

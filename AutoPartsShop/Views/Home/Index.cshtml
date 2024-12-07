@@ -1,7 +1,18 @@
 ﻿
-<partial name="_SearchFormByVin" />
-<partial name="_SearchFormOil" />
-
+ <div style="display: flex; flex-wrap: wrap; gap: 80px; margin: 20px;">
 
     
-  
+    <div style="flex: 1 1 300px; background-color: #8FBFDA; padding: 10px 20px; border-radius: 10px; max-height: 200px; overflow: hidden;">
+        <partial name="_SearchFormByVin" />
+    </div>
+
+   
+    <div style="flex: 1 1 300px; background-color: #8FBFDA; padding: 20px; border-radius: 10px;">
+        <partial name="_SearchFormOil" />
+    </div>
+
+    
+    <div style="flex: 1 1 100%; background-color: #8FBFDA; padding: 20px; border-radius: 10px;">
+        <partial name="_SearchByCategory" />
+    </div>
+</div>

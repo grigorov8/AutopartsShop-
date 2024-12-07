@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AutoPartsShop.Infrastructure.Database.Models.Part>
+
+
+@{
+    ViewData["Title"] = "Parts for this Category";
+}
+
+<h1>Parts for this Category</h1>
+
+@if (Model != null && Model.Any())
+{
+    <div class="product-list" style="display: flex; flex-wrap: wrap; gap: 20px;">
+        @foreach (var item in Model)
+        {
+            <div class="card custom-card">
+                <img src="~/images/@item.ImageFileName" alt="@item.Name" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">@item.Name</h3>
+                    <h4 class="card-manufacturer">@item.Manufacturer</h4>
+                    <p class="card-part-number">Код на продукта: @item.PartNumber</p>
+                    <p class="card-text">@item.Description</p>
+
+                    <div class="price-and-button">
+                        <div class="card-price">@item.Price лв.</div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fa-solid fa-cart-plus"></i> Купи
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No parts available for this category.</p>
+}
