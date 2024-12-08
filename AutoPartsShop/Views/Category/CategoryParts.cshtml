@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<AutoPartsShop.Infrastructure.Database.Models.Part>
+@using AutoPartsShop.Infrastructure.Database;
 
 
-@{
-    ViewData["Title"] = "Parts for this Category";
-}
 
-<h1>Parts for this Category</h1>
+
 
 @if (Model != null && Model.Any())
 {
