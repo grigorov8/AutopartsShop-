@@ -79,6 +79,11 @@ namespace AutoPartsShop.Core.Services
         public async Task AddCarAsync(CarModel carModel)
         {
 
+            if (carModel == null)
+            {
+                throw new ArgumentNullException(nameof(carModel));
+            }
+
 
             var car = new Car
             {
@@ -140,6 +145,7 @@ namespace AutoPartsShop.Core.Services
             }
 
         }
+
 
         public async Task DeleteCarAsync(int id)
         {
