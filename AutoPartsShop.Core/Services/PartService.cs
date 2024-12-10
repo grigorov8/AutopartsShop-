@@ -46,6 +46,12 @@ namespace AutoPartsShop.Core.Services
         public async Task AddPartAsync(PartModel partModel)
         {
 
+            if (partModel == null)
+            {
+
+                throw new ArgumentNullException(nameof(partModel), "The part model cannot be null.");
+
+            }
 
             var part = new Part
             {
@@ -68,12 +74,19 @@ namespace AutoPartsShop.Core.Services
         public async Task DeletePartAsync(int id)
         {
 
-            await _repository.DeleteAsync<Part>(id);
-            await _repository.SaveChangesAsync<Part>();
+            var part = await _repository.GetByIdAsync<Part>(id);
+
+            if (part != null)
+            {
+                await _repository.DeleteAsync<Part>(id);
+                await _repository.SaveChangesAsync<Part>();
+            }
 
         }
 
         
+
+
         public async Task<IEnumerable<PartModel>> GetAllPartsAsync()
         {
 
@@ -94,8 +107,11 @@ namespace AutoPartsShop.Core.Services
         }
 
        
-        public async Task<PartModel?> GetPartByIdAsync(int id)
+
+
+        public async Task<PartModel> GetPartByIdAsync(int id)
         {
+
 
             var part = await _repository.GetByIdAsync<Part>(id);
 
@@ -117,6 +133,7 @@ namespace AutoPartsShop.Core.Services
         }
 
        
+
         public async Task UpdatePartAsync(PartModel partModel)
         {
 
@@ -138,6 +155,7 @@ namespace AutoPartsShop.Core.Services
         
         }
 
+
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
 
@@ -147,8 +165,6 @@ namespace AutoPartsShop.Core.Services
 
 
   
-
-
 
     }
 
