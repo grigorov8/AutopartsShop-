@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoPartsShop.Infrastructure.Database.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 
@@ -54,6 +55,7 @@ namespace AutoPartsShop.Infrastructure.Database.Common
             if (entity != null)
             {
                 DbSet<T>().Remove(entity);
+                
             }
 
         }
@@ -77,6 +79,14 @@ namespace AutoPartsShop.Infrastructure.Database.Common
           return await context.SaveChangesAsync();
 
         }
+
+
+        public IQueryable<CartItem> AllCartItemsForUser(string userId)
+        {
+            return DbSet<CartItem>().Where(ci => ci.UserId == userId);
+        }
+
+
     }
 
 }

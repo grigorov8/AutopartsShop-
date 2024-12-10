@@ -42,8 +42,7 @@ namespace AutoPartsShop.Core.Models
         
         public List<Category> Categories { get; set; } = new List<Category>();
 
-
-
+       
 
 
     }

@@ -56,7 +56,7 @@ namespace AutoPartsShop.Infrastructure.Database.Models
 
         public ICollection<CarPart> CarParts = new List<CarPart>();
 
-
+       
     }
 
 

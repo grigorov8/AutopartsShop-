@@ -1,17 +1,19 @@
 
 
+using AutoPartsShop.Core.Contracts;
+using AutoPartsShop.Core.Services;
+using AutoPartsShop.Infrastructure.Database.Common;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 
-   
-
-
-
-
+  
 
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

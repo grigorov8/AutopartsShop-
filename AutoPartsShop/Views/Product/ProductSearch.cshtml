@@ -5,24 +5,28 @@
 
 
 
-@{
-    ViewData["Title"] = "Всички масла";
-}
 
 <h1>Всички масла</h1>
 
 <div class="product-list" style="display: flex; flex-wrap: wrap; gap: 20px;">
     @foreach (var product in Model)
     {
+
         <div class="product-item" style="border: 2px solid #797979; padding: 20px; border-radius: 10px; width: 200px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
             <h3 style="font-size: 18px; color: #333;">@product.Name</h3>
             <p style="font-size: 14px; color: #555;">Производител: @product.Manufacturer</p>
             <p style="font-size: 12px; color: #777;">@product.Description</p>
             <p style="font-size: 14px; color: #28a745;">Наличност: @product.StockQuantity</p>
             <p style="font-size: 14px; color: #007bff;">Цена: @product.Price лв.</p>
-            <a href="#" class="btn btn-primary">
-                <i class="fa-solid fa-cart-plus"></i> Купи
-            </a>
+            <div class="price-and-button">
+                <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                    <input type="hidden" name="productId" value="@product.Id" />
+                    <input type="hidden" name="partId" value="" />
+                    <input type="number" name="quantity" value="1" min="1" style="width: 50px;" />
+                    <button type="submit" class="btn btn-primary">Купи</button>
+                </form>
+            </div>
+
         </div>
     }
 </div>
@@ -30,3 +34,7 @@
 <div class="pagination" style="margin-top: 20px;">
     @Html.PagedListPager(Model, page => Url.Action("ProductSearch", new { page }))
 </div>
+
+
+
+

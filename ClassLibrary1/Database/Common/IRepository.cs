@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoPartsShop.Infrastructure.Database.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace AutoPartsShop.Infrastructure.Database.Common
         Task<int> SaveChangesAsync<T>();
 
 
-
+        IQueryable<CartItem> AllCartItemsForUser(string userId);
 
     }
 

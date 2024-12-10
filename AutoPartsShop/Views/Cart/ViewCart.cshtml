@@ -1,0 +1,86 @@
+﻿@model AutoPartsShop.Core.Models.CartViewModel
+
+
+
+<div class="container mt-5">
+    <h2>Вашата количка</h2>
+    @if (Model != null && (Model.Products.Any() || Model.Parts.Any()))
+    {
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Продукт</th>
+                                <th>Цена</th>
+                                <th>Количество</th>
+                                <th>Номер на артикул</th>
+                                <th>Изтрий</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Products)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.StockQuantity</td>
+                                    <td>@item.ProductNumber</td>
+                                    <td>
+                                        <form method="post" action="/Cart/RemoveFromCart">
+                                            @if (item.Id != null)
+                                            {
+                                                <input type="hidden" name="ProductId" value="@item.Id" />
+                                            }
+                                            <button type="submit" class="btn btn-danger btn-sm rounded-circle d-flex justify-content-center align-items-center" style="width: 30px; height: 30px; font-size: 25px; color: white;">
+                                                &times;
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+
+                            @foreach (var part in Model.Parts)
+                            {
+                                <tr>
+                                    <td>@part.Name</td>
+                                    <td>@part.Price</td>
+                                    <td>@part.Stock</td>
+                                    <td>@part.PartNumber</td>
+                                    <td>
+                                        <form method="post" action="/Cart/RemoveFromCart">
+                                            @if (part.Id != null)
+                                            {
+                                                <input type="hidden" name="PartId" value="@part.Id" />
+                                            }
+                                            <button type="submit" class="btn btn-danger btn-sm rounded-circle d-flex justify-content-center align-items-center" style="width: 30px; height: 30px; font-size: 25px; color: white;">
+                                                &times;
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ордер</h5>
+                            <p class="card-text">Тотал: @Model.TotalPrice.ToString("C")</p>
+                            <a href="@Url.Action("Checkout", "Cart")" class="btn btn-primary">Завърши поръчката</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            Вашата количка е празна. Добавете продукти!
+        </div>
+    }
+</div>

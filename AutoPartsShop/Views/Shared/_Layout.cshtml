@@ -23,12 +23,17 @@
                     <form asp-controller="Parts" asp-action="PartSearch" method="get" class="d-flex">
                         <input type="text" name="PartNumber" placeholder="Търсене по номер на част" class="form-control me-2" />
                         <button type="submit" class="btn btn-primary">ТЪРСЕНЕ</button>
-                    </form>
+                    </form>  
+        
+                </div>      
+                <partial name="_LoginPartial" />           
+                <div>
+                    <partial name="_Cart" />
                 </div>
-                <partial name="_LoginPartial" />
             </div>
+           
         </div>
-
+     
         <div class="container mt-3">
             @if (User.Identity?.IsAuthenticated ?? false)
             {

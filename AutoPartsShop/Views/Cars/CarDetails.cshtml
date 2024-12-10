@@ -28,12 +28,12 @@
                         <p class="card-part-number">Код на продукта: @part.PartNumber</p>
                         <p class="card-text">@part.Description</p>
 
-                        <div class="price-and-button">
-                            <div class="card-price">@part.Price лв.</div>
-                            <a href="#" class="btn btn-primary">
-                                <i class="fa-solid fa-cart-plus"></i> Купи
-                            </a>
-                        </div>
+                        <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                            <input type="hidden" name="partId" value="@part.Id" />
+                            <input type="hidden" name="productId" value="" />
+                            <input type="number" name="quantity" value="1" min="1" style="width: 50px;" />
+                            <button type="submit" class="btn btn-primary">Купи</button>
+                        </form>
                     </div>
                 </div>
             }

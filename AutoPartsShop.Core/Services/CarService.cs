@@ -97,7 +97,7 @@ namespace AutoPartsShop.Core.Services
         }
 
 
-        public async Task<CarModel?> GetCarByIdAsync(int id)
+        public async Task<CarModel> GetCarByIdAsync(int id)
         {
 
             var car = await _repository.GetByIdAsync<Car>(id);
