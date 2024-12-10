@@ -28,6 +28,7 @@ namespace AutoPartsShop.Infrastructure.Database.Common
 
         IQueryable<CartItem> AllCartItemsForUser(string userId);
 
+
     }
 
 

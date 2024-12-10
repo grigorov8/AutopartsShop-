@@ -2,8 +2,8 @@
 using AutoPartsShop.Infrastructure.Database.Common;
 using AutoPartsShop.Infrastructure.Database.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
+
+
 
 namespace AutoPartsShop.Core.Services
 {

@@ -1,12 +1,14 @@
 ﻿
-        <h2>Търсене по VIN</h2>
+        <h3>Търсене по VIN</h3>
         <form asp-controller="Cars" asp-action="SearchByVin" method="get">
             <div class="form-group">
                 <label for="vin">Въведете VIN:</label>
                 <input type="text" id="vin" name="vin" class="form-control" required placeholder="Пример: WAUZZZ8K4AA123456" maxlength="17" />
             </div>
             <div class="form-group">
-        <button type="submit" class="btn btn-primary fw-bold" style="margin-top: 20px;">Търсене</button>
+        <button type="submit" class="btn btn-primary fw-bold" style="margin-top: 20px; background-color: dodgerblue; border-color: dodgerblue;">
+            Търсене
+        </button>
             </div>
             @if (TempData["ErrorMessage"] != null)
             {

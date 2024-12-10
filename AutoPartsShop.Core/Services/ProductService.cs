@@ -3,7 +3,8 @@ using AutoPartsShop.Core.Models;
 using AutoPartsShop.Infrastructure.Database.Common;
 using Microsoft.EntityFrameworkCore;
 using AutoPartsShop.Infrastructure.Database.Models;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+
+
 
 namespace AutoPartsShop.Core.Services
 {
@@ -43,8 +44,17 @@ namespace AutoPartsShop.Core.Services
         }
 
 
+
         public async Task AddProductAsync(ProductModel productModel)
         {
+
+
+            if (productModel == null)
+            {
+
+                throw new ArgumentNullException(nameof(productModel), "Product model cannot be null.");
+
+            }
 
 
             var product = new Product
@@ -63,6 +73,8 @@ namespace AutoPartsShop.Core.Services
             await _repository.SaveChangesAsync<Product>();
 
         }
+
+
 
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
@@ -119,10 +131,19 @@ namespace AutoPartsShop.Core.Services
         }
 
 
+
         public async Task DeleteProductAsync(int id)
         {
-            await _repository.DeleteAsync<Product>(id);
-            await _repository.SaveChangesAsync<Product>();
+
+            var product = await _repository.GetByIdAsync<Product>(id);
+
+            if (product != null)
+            {
+
+                await _repository.DeleteAsync<Product>(id);
+                await _repository.SaveChangesAsync<Product>();
+
+            }
 
 
         }
