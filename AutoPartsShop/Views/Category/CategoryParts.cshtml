@@ -19,6 +19,7 @@
                     <p class="card-text">@item.Description</p>
 
                     <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                        @Html.AntiForgeryToken()
                         <input type="hidden" name="partId" value="@item.Id" />
                         <input type="hidden" name="productId" value="" />
                         <input type="number" name="quantity" value="1" min="1" style="width: 50px;" />

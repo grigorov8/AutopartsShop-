@@ -5,6 +5,7 @@
 <div class="container mt-5 overflow-auto" style="max-height: 60vh;">
     <h2>Добави нова част</h2>
     <form method="post">
+        @Html.AntiForgeryToken()
         <div class="mb-3">
             <label for="Name" class="form-label">Име на частта</label>
             <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name"/>

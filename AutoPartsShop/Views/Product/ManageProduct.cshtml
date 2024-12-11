@@ -39,6 +39,7 @@
                                 <a href="@Url.Action("EditProduct", "Product", new { id = product.Id })" class="btn btn-warning">Редактирай</a>
 
                                 <form action="@Url.Action("DeleteProduct", "Product", new { id = product.Id })" method="post">
+                                        @Html.AntiForgeryToken()
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Сигурни ли сте, че искате да изтриете този продукт?');">Изтрий</button>
                                 </form>
                             </div>

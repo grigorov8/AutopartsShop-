@@ -6,6 +6,7 @@
 <div class="container mt-5" style="max-height: 500px; overflow-y: scroll;">
     <h2>Редактиране на продукт</h2>
     <form method="post">
+        @Html.AntiForgeryToken()
         <input type="hidden" name="Id" value="@Model.Id" />
         <div class="mb-3">
             <label for="Name" class="form-label">Име на продукт</label>

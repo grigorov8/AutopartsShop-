@@ -36,6 +36,7 @@
                             <a href="@Url.Action("EditCar", "Cars", new { id = car.Id })" class="btn btn-warning">Редактирай</a>
 
                             <form action="@Url.Action("DeleteCar", "Cars", new { id = car.Id })" method="post" style="display:inline;">
+                                    @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Сигурни ли сте, че искате да изтриете тази кола?');">Изтрий</button>
                             </form>
                         </td>

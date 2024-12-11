@@ -10,6 +10,7 @@
         <div>
             <p style="color: #797979; font-weight: bold;">Здравейте, @User.Identity.Name!</p>
             <form asp-area="Identity" asp-page="/Account/Logout" method="post">
+                @Html.AntiForgeryToken()
                 <button type="submit" class="btn btn-link fw-bold text-decoration-none" style="color: #797979;">Изход</button>
             </form>
         </div>
@@ -38,6 +39,7 @@
             </div>
             <div class="modal-body">
                 <form asp-area="Identity" asp-page="/Account/Login" method="post">
+                    @Html.AntiForgeryToken()
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="loginEmail" name="Input.Email" placeholder="name@example.com" required>
                         <label for="loginEmail">Имейл</label>
@@ -70,6 +72,7 @@
             </div>
             <div class="modal-body">
                 <form asp-area="Identity" asp-page="/Account/Register" method="post">
+                    @Html.AntiForgeryToken()
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="registerEmail" name="Input.Email" placeholder="name@example.com" required>
                         <label for="registerEmail">Имейл</label>

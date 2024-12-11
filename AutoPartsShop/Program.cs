@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoPartsShop.Core.Extensions;
 using AutoPartsShop.Infrastructure.Database.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 
 
@@ -30,7 +32,14 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 builder.Services.AddRazorPages();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+
+     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+
+}
+   
+);
      
 builder.Services.AddCoreServices();
 builder.Services.AddDataServices();

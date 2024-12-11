@@ -3,6 +3,7 @@
 <div class="container">
     <h2>Change Roles for @Model.UserEmail</h2>
     <form asp-action="ChangeUserRoles" method="post">
+        @Html.AntiForgeryToken()
         <input type="hidden" asp-for="UserId" />
         <div class="mb-3">
             <label>Available Roles</label>

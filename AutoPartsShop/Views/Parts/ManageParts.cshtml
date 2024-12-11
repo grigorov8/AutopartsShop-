@@ -42,6 +42,7 @@
                             <a href="@Url.Action("EditPart", "Parts", new { id = part.Id })" class="btn btn-warning">Редактирай</a>
 
                             <form action="@Url.Action("DeletePart", "Parts", new { id = part.Id })" method="post" style="display:inline;">
+                                    @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Сигурни ли сте, че искате да изтриете тази част?');">Изтрий</button>
                             </form>
                         </td>

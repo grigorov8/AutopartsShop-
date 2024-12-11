@@ -20,6 +20,7 @@
             <p style="font-size: 14px; color: #007bff;">Цена: @product.Price лв.</p>
             <div class="price-and-button">
                 <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                    @Html.AntiForgeryToken()
                     <input type="hidden" name="productId" value="@product.Id" />
                     <input type="hidden" name="partId" value="" />
                     <input type="number" name="quantity" value="1" min="1" style="width: 50px;" />

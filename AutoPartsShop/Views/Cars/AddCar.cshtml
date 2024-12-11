@@ -5,6 +5,7 @@
 <div class="container mt-5 overflow-auto" style="max-height: 60vh;">
     <h2>Добави нова кола</h2>
     <form method="post">
+        @Html.AntiForgeryToken()
         <div class="mb-3">
             <label for="Make" class="form-label">Марка</label>
             <input type="text" class="form-control" id="Make" name="Make" value="@Model.Make" />

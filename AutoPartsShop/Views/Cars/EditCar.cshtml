@@ -6,6 +6,7 @@
 <div class="container mt-5">
     <h2>Редактиране на кола</h2>
     <form method="post">
+        @Html.AntiForgeryToken()
         <input type="hidden" name="Id" value="@Model.Id" />
         <div class="mb-3">
             <label for="Make" class="form-label">Име на кола</label>
