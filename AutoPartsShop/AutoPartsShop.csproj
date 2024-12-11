@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\car-search-api.js" />
     <Content Remove="wwwroot\js\show-parts.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\car-search-api.js" />
     <None Include="wwwroot\js\show-parts.js" />
   </ItemGroup>
 

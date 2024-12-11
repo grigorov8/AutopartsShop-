@@ -1,130 +1,64 @@
-﻿using AutoPartsShop.Core.Contracts;
-using AutoPartsShop.Core.Models;
-using AutoPartsShop.Core.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-
-namespace AutoPartsShop.Controllers
+namespace AutoPartsShop.Api.Controllers
 {
-
-    public class CarsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CarController : ControllerBase
     {
+        private readonly HttpClient _httpClient;
 
-
-        private readonly ICarService _carService;
-
-
-        public CarsController(ICarService carService)
+        public CarController(HttpClient httpClient)
         {
-
-            _carService = carService;
-
+            _httpClient = httpClient;
         }
 
-
-        [HttpGet]
-        public async Task<IActionResult> SearchByVin(string vin)
+        // Метод за извличане на марките автомобили
+        [HttpGet("Get-makes")]
+        public async Task<IActionResult> GetMakes()
         {
+            string url = "https://www.carqueryapi.com/api/0.3/?cmd=getMakes"; // Заявка за марките
 
-            var car = await _carService.SearchCarByVin(vin);
+            // Извършване на GET заявка към външния API
+            var response = await _httpClient.GetStringAsync(url);
 
-
-            if (car == null)
-            {
-                TempData["ErrorMessage"] = "Car not found!";
-                return RedirectToAction("Index", "Home");
-            }
-
-
-            return View("CarDetails", car);
-
+            // Връщаме отговор в JSON формат
+            return Ok(response);
         }
 
-
-
-        [HttpGet]
-        public async Task<IActionResult> ManageCars()
+        // Метод за извличане на моделите на определена марка
+        [HttpGet("get-models/{make}")]
+        public async Task<IActionResult> GetModels(string make)
         {
+            string url = $"https://www.carqueryapi.com/api/0.3/?cmd=getModels&make={make}"; // Заявка за моделите на марка
 
-            var cars = await _carService.GetAllCarsAsync();
+            var response = await _httpClient.GetStringAsync(url);
 
-
-            return View(cars);
-
+            return Ok(response);
         }
 
-
-        [HttpGet]
-        public IActionResult AddCar()
+        // Метод за извличане на години за определена марка и модел
+        [HttpGet("get-years")]
+        public async Task<IActionResult> GetYears(string make, string model)
         {
+            string url = $"https://www.carqueryapi.com/api/0.3/?cmd=getYears&make={make}&model={model}"; // Заявка за години на марка и модел
 
-            var carModel = new CarModel();
+            var response = await _httpClient.GetStringAsync(url);
 
-
-            return View(carModel);
-
+            return Ok(response);
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> AddCar(CarModel carModel)
+        // Метод за извличане на наличните варианти за даден модел
+        [HttpGet("get-trims")]
+        public async Task<IActionResult> GetTrims(string make, string model, string year)
         {
+            string url = $"https://www.carqueryapi.com/api/0.3/?cmd=getTrims&make={make}&model={model}&year={year}"; // Заявка за варианти на модел
 
-            if (ModelState.IsValid)
-            {
+            var response = await _httpClient.GetStringAsync(url);
 
-                await _carService.AddCarAsync(carModel);
-                return RedirectToAction(nameof(ManageCars));
-
-            }
-
-
-            return View(carModel);
-
+            return Ok(response);
         }
-
-
-        [HttpGet]
-        public async Task<IActionResult> EditCar(int id)
-        {
-
-            var car = await _carService.GetCarByIdAsync(id);
-            if (car == null)
-            {
-                return NotFound();
-            }
-            return View(car);
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> EditCar(CarModel carModel)
-        {
-            if (ModelState.IsValid)
-            {
-                await _carService.UpdateCarAsync(carModel);
-                return RedirectToAction(nameof(ManageCars));
-            }
-            return View(carModel);
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> DeleteCar(int id)
-        {
-            var part = await _carService.GetCarByIdAsync(id);
-            if (part == null)
-            {
-                return NotFound();
-            }
-
-            await _carService.DeleteCarAsync(id);
-            return RedirectToAction(nameof(ManageCars));
-        }
-
-
-
     }
-
-
 }

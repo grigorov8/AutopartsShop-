@@ -1,0 +1,41 @@
+﻿
+
+
+
+<div class="d-flex flex-column align-items-start" style="gap: 10px; max-width: 300px; border: 1px solid #333; padding: 15px; border-radius: 8px;">
+    <h4>Детайли за вашия автомобил</h4>
+
+    <select id="makes" onchange="getModels()" class="form-select form-select-sm" style="border: 1px solid #444;">
+        <option value="" selected disabled>Изберете Марка</option>
+    </select>
+
+    <select id="models" onchange="getYears()" class="form-select form-select-sm" style="border: 1px solid #444;">
+        <option value="" selected disabled>Изберете Модел</option>
+    </select>
+
+    <select id="years" onchange="getTrims()" class="form-select form-select-sm" style="border: 1px solid #444;">
+        <option value="" selected disabled>Изберете Година</option>
+    </select>
+
+    <select id="trims" class="form-select form-select-sm" style="border: 1px solid #444;">
+        <option value="" selected disabled>Изберете Двигател</option>
+    </select>
+
+    <button id="searchButton" onclick="searchCar()" class="btn btn-primary"
+            style=" background-color: dodgerblue; color: #fff; font-weight: bold; padding: 6px 10px; border-radius: 3px; cursor: pointer;">
+        Търси
+    </button>
+
+    <div class="mt-4">
+        <div id="carDetails" style="max-width: 300px; background: #f8f9fa; border-radius: 8px; padding: 15px; border: 1px solid #ddd; border-top: 2px solid #444;">
+            <p>Изберете марка, модел, година и двигател и вижте детайли.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/car-search-api.js"></script>
+
+

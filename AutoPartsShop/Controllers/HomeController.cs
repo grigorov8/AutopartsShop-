@@ -21,6 +21,7 @@ namespace AutoPartsShop.Controllers
 
         }
 
+
         public async Task<IActionResult> Index()
         {
 
@@ -42,7 +43,10 @@ namespace AutoPartsShop.Controllers
 
         }
 
-
+        public IActionResult CarSearch()
+        {
+            return View();
+        }
 
 
         public IActionResult Error(int? statusCode)

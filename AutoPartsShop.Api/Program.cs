@@ -1,8 +1,7 @@
-
-
 using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Services;
 using AutoPartsShop.Infrastructure.Database.Common;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,13 +11,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IRepository, Repository>();
-builder.Services.AddScoped<ICartService, CartService>();
+
+builder.Services.AddHttpClient();
+
+
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
@@ -30,6 +45,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
