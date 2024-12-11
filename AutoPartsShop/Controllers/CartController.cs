@@ -1,16 +1,15 @@
 ﻿using AutoPartsShop.Core.Contracts;
 using AutoPartsShop.Core.Models;
 using AutoPartsShop.Core.Services;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+
 
 namespace AutoPartsShop.Web.Controllers
 {
 
-   
+
     public class CartController : Controller
     {
         private readonly ICartService _cartService;
@@ -87,19 +86,32 @@ namespace AutoPartsShop.Web.Controllers
 
 
 
+
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddToCart(int? productId, int? partId, int quantity)
         {
 
-
-
             var userId = User.Identity.Name;
-            await _cartService.AddToCartAsync(userId, productId, partId, quantity);
+
+            try
+            {
+
+                await _cartService.AddToCartAsync(userId, productId, partId, quantity);
+                TempData["Success"] = "Продуктът беше успешно добавен в количката!";
+
+            }
+            catch (InvalidOperationException ex)
+            {
+
+                TempData["Error"] = ex.Message; 
+
+            }
 
             return RedirectToAction("ViewCart");
 
         }
+
 
 
 

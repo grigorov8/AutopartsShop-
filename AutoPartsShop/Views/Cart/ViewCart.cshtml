@@ -1,6 +1,20 @@
 ﻿@model AutoPartsShop.Core.Models.CartViewModel
 
 
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
 
 <div class="container mt-5">
     <h2>Вашата количка</h2>

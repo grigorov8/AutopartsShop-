@@ -131,11 +131,11 @@ function searchCar() {
         carDetailsDiv.innerHTML = `
             <h5>Details for ${details.make_display} ${details.model_name}</h5>
             <ul>
-                <li><strong>Top Speed:</strong> ${details.model_top_speed_kph || "N/A"} km/h</li>
-                <li><strong>Weight:</strong> ${details.model_weight_kg || "N/A"} kg</li>
                 <li><strong>Acceleration (0-100 km/h):</strong> ${details.model_0_to_100_kph || "N/A"} s</li>
-                <li><strong>Oil Capacity:</strong> ${details.oil_capacity || "N/A"} liters</li>
-                <li><strong>Fuel Consumption:</strong> ${details.model_fuel_cons || "N/A"}</li>
+                <li><strong>Engine Torque:</strong> ${details.model_engine_torque_nm || "N/A"} Nm</li>
+                <li><strong>Top Speed:</strong> ${details.model_top_speed_kph || "N/A"} km/h</li> 
+                 <li><strong>Weight:</strong> ${details.model_weight_kg || "N/A"} kg</li>
+                <li><strong>Fuel Tank Capacity:</strong> ${details.model_fuel_cap_l || "N/A"} liters</li>
             </ul>
         `;
     }).fail(function (error) {
