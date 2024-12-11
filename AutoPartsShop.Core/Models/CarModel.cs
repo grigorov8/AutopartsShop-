@@ -34,5 +34,7 @@ namespace AutoPartsShop.Core.Models
 
         public List<PartModel> Parts { get; set; } = new List<PartModel>();
 
+
     }
+
 }

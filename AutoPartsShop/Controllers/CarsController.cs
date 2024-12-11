@@ -89,22 +89,28 @@ namespace AutoPartsShop.Controllers
         {
 
             var car = await _carService.GetCarByIdAsync(id);
+
             if (car == null)
             {
                 return NotFound();
             }
             return View(car);
+
         }
 
 
         [HttpPost]
         public async Task<IActionResult> EditCar(CarModel carModel)
         {
+
             if (ModelState.IsValid)
             {
+
                 await _carService.UpdateCarAsync(carModel);
                 return RedirectToAction(nameof(ManageCars));
+
             }
+
             return View(carModel);
         }
 
@@ -112,14 +118,18 @@ namespace AutoPartsShop.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteCar(int id)
         {
+
             var part = await _carService.GetCarByIdAsync(id);
+
             if (part == null)
             {
                 return NotFound();
             }
 
             await _carService.DeleteCarAsync(id);
+
             return RedirectToAction(nameof(ManageCars));
+
         }
 
 

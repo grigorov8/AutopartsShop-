@@ -51,6 +51,7 @@ namespace AutoPartsShop.Web.Controllers
            
             var cartViewModel = new CartViewModel
             {
+
               
                 Products = cartItems.Where(ci => ci.ProductId != null)
                     .Select(ci => new ProductModel
@@ -81,7 +82,10 @@ namespace AutoPartsShop.Web.Controllers
 
           
             return View(cartViewModel);
+
         }
+
+
 
         [Authorize]
         [HttpPost]
@@ -103,6 +107,7 @@ namespace AutoPartsShop.Web.Controllers
         public async Task<IActionResult> RemoveFromCart(int? productId, int? partId)
         {
 
+
             if (productId == null && partId == null)
             {
                 return BadRequest("ProductId or PartId must be provided.");
@@ -113,8 +118,7 @@ namespace AutoPartsShop.Web.Controllers
                 await _cartService.RemoveFromCartByProductOrPartIdAsync(productId, partId);
                 return RedirectToAction("ViewCart");
             }
-               
-            
+                          
                         
             
         }
