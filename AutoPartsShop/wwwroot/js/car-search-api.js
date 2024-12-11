@@ -32,7 +32,7 @@ function getModels() {
         const models = data.Models;
         const modelsDropdown = document.getElementById("models");
 
-        modelsDropdown.innerHTML = '<option value="" selected disabled>Select Model</option>';
+        modelsDropdown.innerHTML = '<option value="" selected disabled>Изберете Модел</option>';
 
         models.forEach(model => {
             const option = document.createElement("option");
@@ -60,7 +60,7 @@ function getYears() {
         const years = data.Years;
         const yearsDropdown = document.getElementById("years");
 
-        yearsDropdown.innerHTML = '<option value="" selected disabled>Select Year</option>';
+        yearsDropdown.innerHTML = '<option value="" selected disabled>Изберете Година</option>';
 
         if (years) {
             const minYear = parseInt(years.min_year);
@@ -96,7 +96,7 @@ function getTrims() {
         const trims = data.Trims;
         const trimsDropdown = document.getElementById("trims");
 
-        trimsDropdown.innerHTML = '<option value="" selected disabled>Select Engine/Trim</option>';
+        trimsDropdown.innerHTML = '<option value="" selected disabled>Изберете Двигател</option>';
 
         trims.forEach(trim => {
             const option = document.createElement("option");
