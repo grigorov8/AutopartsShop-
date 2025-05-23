@@ -1,6 +1,6 @@
 ﻿using AutoPartsShop.Infrastructure.Database.Models;
-using AutoPartsShop.Core.Services;
-using AutoPartsShop.Core.Models;
+
+
 
 namespace AutoPartsShop.Core.Contracts
 {
